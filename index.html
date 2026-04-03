@@ -231,9 +231,30 @@ footer span{color:var(--pink);}
 
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
+.hero-name-highlight{font-weight:700;color:var(--text);}
+
+/* --- Mobile nav --- */
+.nav-mobile-controls{display:none;align-items:center;gap:0.55rem;}
+.nav-cta-sm{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--pink-mid),var(--pink-dark));color:white;font-size:0.8rem;font-weight:600;padding:0.38rem 0.85rem;border-radius:50px;text-decoration:none;box-shadow:0 3px 12px rgba(224,96,144,0.28);white-space:nowrap;position:relative;overflow:hidden;}
+.nav-hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:5px;width:34px;height:34px;flex-shrink:0;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.25s,opacity 0.25s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-dropdown{display:none;position:fixed;top:54px;left:0;right:0;z-index:199;background:rgba(253,250,247,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.4rem 1.5rem 0.8rem;}
+.mobile-dropdown.open{display:block;}
+.mobile-dropdown ul{list-style:none;display:flex;flex-direction:column;}
+.mobile-dropdown ul li a{display:block;padding:0.7rem 0;font-size:0.95rem;font-weight:500;color:var(--text-mid);text-decoration:none;border-bottom:1px solid var(--border);}
+.mobile-dropdown ul li:last-child a{border-bottom:none;}
+.mobile-dropdown ul li a:hover{color:var(--pink-dark);}
+nav{transition:transform 0.3s;}
+nav.nav-hidden{transform:translateY(-100%);}
 
 @media(max-width:960px){
-  nav{padding:0.9rem 1.5rem;}
+  nav{padding:0.55rem 1rem;}
+  nav ul{display:none;}
+  .nav-logo-name{display:none;}
+  .nav-mobile-controls{display:flex;}
   .hero{padding:6rem 1.5rem 3rem;}
   .hero-inner{grid-template-columns:1fr;}
   .hero-img-wrap{order:-1;max-width:300px;margin:0 auto;}
@@ -253,10 +274,10 @@ footer span{color:var(--pink);}
 <div class="sakura-wrap" id="sakuraWrap"></div>
 <div class="stars-wrap" id="starsWrap"></div>
 
-<nav>
+<nav id="main-nav">
   <a href="#" class="nav-logo">
     <div class="nav-logo-icon"><img src="images/icon.jpg" alt="さいにゃん"></div>
-    <div><span class="nav-logo-text">さいにゃん</span><span class="nav-logo-sub">Sainyan</span></div>
+    <div class="nav-logo-name"><span class="nav-logo-text">さいにゃん</span><span class="nav-logo-sub">Sainyan</span></div>
   </a>
   <ul>
     <li><a href="#works">Works</a></li>
@@ -267,7 +288,24 @@ footer span{color:var(--pink);}
     <li><a href="#contact" class="nav-cta shine">お仕事のご依頼</a></li>
     <li><a href="en/index.html" class="nav-lang">EN</a></li>
   </ul>
+  <!-- Mobile controls (smartphone only) -->
+  <div class="nav-mobile-controls">
+    <a href="#contact" class="nav-cta-sm shine">ご依頼</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+<div class="mobile-dropdown" id="mobile-menu">
+  <ul>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#manga">Manga</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pricing">Flow</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="en/index.html">EN</a></li>
+  </ul>
+</div>
 
 <section class="hero">
   <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div>
@@ -278,7 +316,7 @@ footer span{color:var(--pink);}
         <span class="star-deco">✦</span><span class="star-deco">✦</span><span class="star-deco">✦</span>
         <span class="hero-catchcopy">かわいいを、<br>丁寧に描く。</span>
       </div>
-      <p class="hero-sub">漫画家・イラストレーター</p>
+      <p class="hero-sub"><span class="hero-name-highlight">さいにゃん</span>｜漫画家・イラストレーター</p>
       <p class="hero-desc">まんがタイムきらら MAX で商業連載を経験。<br>コメディ・萌え系の女の子キャラクターを得意とし、<br>VTuberイラスト・キャラクターデザイン・<br>カバーイラストなど幅広くお受けしています。</p>
       <div class="hero-badges">
         <span class="badge badge-lav">キャラクターデザイン</span>
@@ -729,6 +767,42 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Mobile nav: hide on scroll down, show on scroll up
+const mainNav=document.getElementById('main-nav');
+let lastY=0;
+window.addEventListener('scroll',()=>{
+  if(window.innerWidth<=960){
+    const y=window.scrollY;
+    if(y>lastY&&y>80){mainNav.classList.add('nav-hidden');}
+    else{mainNav.classList.remove('nav-hidden');}
+    lastY=y;
+  }
+},{passive:true});
+
+// Hamburger toggle
+const hamBtn=document.getElementById('hamburger');
+const mobMenu=document.getElementById('mobile-menu');
+hamBtn.addEventListener('click',()=>{
+  const isOpen=mobMenu.classList.toggle('open');
+  hamBtn.classList.toggle('open',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+});
+mobMenu.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    mobMenu.classList.remove('open');
+    hamBtn.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>960){
+    mobMenu.classList.remove('open');
+    hamBtn.classList.remove('open');
+    mainNav.classList.remove('nav-hidden');
+    document.body.style.overflow='';
+  }
+});
 </script>
 </body>
 </html>
