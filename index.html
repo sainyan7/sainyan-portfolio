@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="漫画家・イラストレーター さいにゃんのポートフォリオ。VTuberイラスト・キャラクターデザイン・商業漫画など幅広くご依頼承り中。">
+<meta property="og:title" content="さいにゃん | 漫画家・イラストレーター">
+<meta property="og:description" content="かわいいを、丁寧に描く。企業案件・受注受付中。">
+<meta property="og:type" content="website">
+<title>さいにゃん | 漫画家・イラストレーター</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f7a8c4;--pink-mid:#e87aaa;--pink-dark:#e06090;--pink-light:#fde8f1;
+  --sky:#a8d8f7;--sky-light:#e6f4fd;--lavender:#c9b8f0;--lavender-light:#f0ecfc;
+  --cream:#fdfaf7;--text:#3a2d35;--text-mid:#7a6470;--text-light:#b09aa8;
+  --border:rgba(247,168,196,0.35);--shadow:rgba(200,120,160,0.12);
+  --radius:20px;--radius-sm:12px;--radius-xs:8px;
+  --fs-base:1rem;--fs-sm:0.88rem;--fs-xs:0.78rem;--fs-xxs:0.72rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:17px;}
+body{font-family:'Outfit','Zen Maru Gothic',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.75;}
+
+.particle{position:fixed;pointer-events:none;z-index:9997;animation:particleFade 0.8s ease forwards;font-size:13px;}
+@keyframes particleFade{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-30px) scale(0.5)}}
+
+.sakura-wrap{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.petal{position:absolute;top:-20px;border-radius:50% 0 50% 0;opacity:0.55;animation:fall linear infinite;}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0deg) translateX(0);opacity:0.6}50%{transform:translateY(50vh) rotate(180deg) translateX(40px)}100%{transform:translateY(110vh) rotate(360deg) translateX(-20px);opacity:0}}
+
+.stars-wrap{position:absolute;top:0;left:0;width:100%;pointer-events:none;z-index:0;}
+.float-star{position:absolute;pointer-events:none;animation:floatStar ease-in-out infinite;opacity:0.28;font-size:14px;}
+@keyframes floatStar{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(15deg)}}
+@keyframes twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.7)}}
+
+.shine{position:relative;overflow:hidden;}
+.shine::after{content:'';position:absolute;top:-50%;left:-75%;width:50%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);transform:skewX(-20deg);transition:left 0.5s;pointer-events:none;}
+.shine:hover::after{left:125%;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 3rem;background:rgba(253,250,247,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-icon{width:38px;height:38px;border-radius:50%;overflow:hidden;border:2px solid var(--pink);flex-shrink:0;}
+.nav-logo-icon img{width:100%;height:100%;object-fit:cover;}
+.nav-logo-text{font-family:'Zen Maru Gothic',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text);}
+.nav-logo-sub{font-size:0.65rem;color:var(--text-light);letter-spacing:0.1em;display:block;margin-top:-3px;}
+nav ul{list-style:none;display:flex;gap:1.8rem;align-items:center;}
+nav a{text-decoration:none;font-size:0.88rem;font-weight:500;color:var(--text-mid);letter-spacing:0.05em;transition:color 0.2s;}
+nav a:hover{color:var(--pink-dark);}
+.nav-cta{background:linear-gradient(135deg,var(--pink-mid),var(--pink-dark))!important;color:white!important;padding:0.48rem 1.2rem;border-radius:50px;font-weight:600!important;box-shadow:0 4px 16px rgba(224,96,144,0.3);}
+.nav-lang{font-size:0.82rem!important;border:1.5px solid var(--border)!important;padding:0.28rem 0.7rem;border-radius:50px;}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 3rem 4rem;position:relative;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
+.blob1{width:480px;height:480px;background:var(--pink-light);top:-80px;right:-80px;opacity:0.8;}
+.blob2{width:380px;height:380px;background:var(--sky-light);bottom:-60px;left:-60px;opacity:0.7;}
+.blob3{width:260px;height:260px;background:var(--lavender-light);top:45%;left:38%;opacity:0.5;}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--pink-light);color:var(--pink-dark);font-size:0.8rem;font-weight:600;padding:0.32rem 0.9rem;border-radius:50px;margin-bottom:1rem;letter-spacing:0.06em;}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pink-dark);}
+.hero-catchcopy-wrap{position:relative;display:inline-block;margin-bottom:1.2rem;}
+.hero-catchcopy{font-family:'Zen Maru Gothic',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.25;background:linear-gradient(135deg,var(--pink-dark) 0%,#b060d0 50%,var(--lavender) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.star-deco{position:absolute;-webkit-text-fill-color:var(--pink);animation:twinkle 1.5s ease-in-out infinite;}
+.star-deco:nth-child(1){top:-10px;right:-24px;font-size:1rem;animation-delay:0s;}
+.star-deco:nth-child(2){bottom:0;left:-18px;font-size:0.7rem;animation-delay:0.6s;}
+.star-deco:nth-child(3){top:40%;right:-32px;font-size:0.8rem;animation-delay:1.1s;}
+.hero-sub{font-size:0.95rem;color:var(--text);font-family:'Zen Maru Gothic',sans-serif;font-weight:500;margin-bottom:0.5rem;}
+.hero-desc{font-size:0.95rem;line-height:2;color:var(--text-mid);margin-bottom:1.6rem;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1.8rem;}
+.badge{font-size:0.78rem;font-weight:600;padding:0.28rem 0.75rem;border-radius:50px;border:1.5px solid;}
+.badge-pink{border-color:var(--pink);color:var(--pink-dark);background:var(--pink-light);}
+.badge-sky{border-color:var(--sky);color:#3a7ab5;background:var(--sky-light);}
+.badge-lav{border-color:var(--lavender);color:#6040b0;background:var(--lavender-light);}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink-mid),var(--pink-dark));color:white;font-size:0.95rem;font-weight:600;padding:0.78rem 1.8rem;border-radius:50px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 6px 24px rgba(224,96,144,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(224,96,144,0.4);}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;color:var(--text-mid);font-size:0.95rem;font-weight:500;text-decoration:none;padding:0.78rem 1.2rem;border-radius:50px;border:1.5px solid var(--border);transition:border-color 0.2s,color 0.2s;}
+.btn-secondary:hover{border-color:var(--pink);color:var(--pink-dark);}
+.hero-img-wrap{display:flex;justify-content:center;align-items:center;}
+.hero-img-wrap img{width:100%;max-width:520px;height:auto;object-fit:contain;filter:drop-shadow(0 24px 56px rgba(224,96,144,0.22));animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+section{padding:5rem 3rem;position:relative;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--pink-dark);margin-bottom:0.4rem;}
+.section-label::before{content:'';width:18px;height:2px;background:linear-gradient(90deg,var(--pink),var(--lavender));border-radius:2px;}
+.section-title{font-family:'Zen Maru Gothic',sans-serif;font-size:clamp(1.6rem,2.5vw,2.1rem);font-weight:700;color:var(--text);margin-bottom:0.5rem;line-height:1.3;display:block;}
+.section-title::after{content:'✦';font-size:0.75rem;color:var(--pink);margin-left:8px;animation:twinkle 2s ease-in-out infinite;vertical-align:super;}
+.section-sub{font-size:0.95rem;color:var(--text-mid);margin-bottom:2.5rem;}
+
+#works{background:white;}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+.work-card{background:var(--cream);border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px var(--shadow);}
+.work-card-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--pink-light),var(--lavender-light));}
+.work-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;display:block;}
+.work-card:hover .work-card-img img{transform:scale(1.04);}
+.dot-btns{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:3;background:rgba(58,45,53,0.4);padding:6px 10px;border-radius:50px;}
+.dot-btn{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,0.8);cursor:pointer;background:rgba(255,255,255,0.25);transition:background 0.2s,transform 0.2s;padding:0;flex-shrink:0;}
+.dot-btn.active{background:white;transform:scale(1.15);}
+.dot-btn:hover{background:rgba(255,255,255,0.7);}
+.work-card-body{padding:1rem 1.2rem 1.2rem;}
+.work-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.5rem;}
+.work-tag{font-size:0.72rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:50px;letter-spacing:0.03em;}
+.tag-chara{background:var(--lavender-light);color:#6040b0;}
+.tag-vtuber{background:var(--sky-light);color:#3a7ab5;}
+.tag-original{background:var(--lavender-light);color:#6040b0;}
+.tag-commission{background:var(--pink-light);color:var(--pink-dark);}
+.tag-fanart{background:#f3f3f3;color:#888;}
+.tag-mini{background:var(--sky-light);color:#3a7ab5;}
+.tag-fan-project{background:#fff3e0;color:#b07000;}
+.tag-secret{background:#f0f0f0;color:#666;}
+.tag-season{background:#e8f5e9;color:#2e7d32;}
+.work-card-title{font-family:'Zen Maru Gothic',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+.work-card-desc{font-size:0.82rem;color:var(--text-mid);line-height:1.7;}
+
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(40,15,25,0.78);align-items:center;justify-content:center;padding:2rem;}
+.lightbox.open{display:flex;}
+.lightbox-inner{position:relative;display:flex;align-items:center;gap:1rem;max-width:92vw;}
+.lightbox-inner img{max-width:78vw;max-height:85vh;object-fit:contain;border-radius:var(--radius-sm);box-shadow:0 24px 64px rgba(0,0,0,0.35);}
+.lightbox-close{position:absolute;top:-3rem;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;opacity:0.8;transition:opacity 0.2s;line-height:1;}
+.lightbox-close:hover{opacity:1;}
+.lb-arrow{background:rgba(253,250,247,0.15);border:1.5px solid rgba(255,255,255,0.3);color:white;width:44px;height:44px;border-radius:50%;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;flex-shrink:0;}
+.lb-arrow:hover{background:rgba(253,250,247,0.3);}
+.lb-arrow:disabled{opacity:0.2;}
+.lb-counter{position:absolute;bottom:-2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.7);font-size:0.82rem;}
+
+#manga{background:var(--cream);}
+.manga-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.manga-card{display:flex;gap:1.6rem;align-items:flex-start;background:white;border-radius:var(--radius);padding:1.8rem;border:1.5px solid var(--border);transition:box-shadow 0.2s;}
+.manga-card:hover{box-shadow:0 8px 32px var(--shadow);}
+.manga-cover{width:140px;height:196px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0;box-shadow:0 6px 20px rgba(0,0,0,0.14);}
+.manga-cover img{width:100%;height:100%;object-fit:cover;}
+.manga-info{flex:1;}
+.manga-vol{font-size:0.78rem;font-weight:700;color:var(--pink-dark);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.3rem;}
+.manga-title{font-family:'Zen Maru Gothic',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;line-height:1.3;}
+.manga-meta{font-size:0.82rem;color:var(--text-light);margin-bottom:0.7rem;}
+.manga-desc{font-size:0.88rem;color:var(--text-mid);line-height:1.75;margin-bottom:1rem;}
+.manga-links{display:flex;flex-direction:column;gap:0.5rem;}
+.manga-btn{display:inline-flex;align-items:center;gap:5px;font-size:0.82rem;font-weight:600;color:var(--pink-dark);text-decoration:none;border:1.5px solid var(--pink);padding:0.35rem 0.9rem;border-radius:50px;transition:background 0.2s,color 0.2s;width:fit-content;}
+.manga-btn:hover{background:var(--pink);color:white;}
+.manga-btn-x{border-color:var(--border);color:var(--text-mid);}
+.manga-btn-x:hover{background:var(--text-mid);color:white;border-color:var(--text-mid);}
+.manga-note{margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--pink-light);border-radius:var(--radius-sm);font-size:0.9rem;color:var(--text-mid);line-height:1.8;}
+.manga-note a{color:var(--pink-dark);font-weight:600;text-decoration:none;}
+
+#about{background:white;}
+.about-grid{display:grid;grid-template-columns:260px 1fr;gap:4rem;align-items:start;}
+.about-card{background:var(--cream);border-radius:var(--radius);padding:2rem 1.5rem;border:1.5px solid var(--border);text-align:center;}
+.about-avatar{width:96px;height:96px;border-radius:50%;overflow:hidden;margin:0 auto 1rem;border:3px solid var(--pink);box-shadow:0 4px 16px var(--shadow);}
+.about-avatar img{width:100%;height:100%;object-fit:cover;}
+.about-name{font-family:'Zen Maru Gothic',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text);}
+.about-role{font-size:0.85rem;color:var(--text-mid);margin-bottom:1.4rem;}
+.about-sns{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem;}
+.sns-btn{display:inline-flex;align-items:center;gap:4px;font-size:0.78rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:50px;border:1.5px solid var(--border);color:var(--text-mid);text-decoration:none;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.sns-btn:hover{border-color:var(--pink);color:var(--pink-dark);background:var(--pink-light);}
+.about-content h3{font-family:'Zen Maru Gothic',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);margin:1.6rem 0 0.7rem;padding-bottom:0.4rem;border-bottom:2px solid var(--pink-light);}
+.about-content h3:first-child{margin-top:0;}
+.about-content p{font-size:0.95rem;line-height:1.9;color:var(--text-mid);margin-bottom:0.8rem;}
+.skills-grid{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.skill-chip{font-size:0.82rem;font-weight:500;padding:0.3rem 0.8rem;border-radius:50px;border:1.5px solid var(--border);color:var(--text-mid);background:var(--cream);}
+.about-table{width:100%;border-collapse:collapse;font-size:0.9rem;}
+.about-table td{padding:0.5rem 0.5rem;border-bottom:1px solid var(--border);color:var(--text-mid);}
+.about-table td:first-child{color:var(--text);font-weight:500;white-space:nowrap;padding-right:1.5rem;}
+.about-table tr:last-child td{border-bottom:none;}
+
+#pricing{background:var(--cream);}
+.pricing-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.pricing-intro{background:white;border-radius:var(--radius);padding:2rem;border:1.5px solid var(--border);}
+.pricing-intro p{font-size:0.95rem;color:var(--text-mid);line-height:1.9;margin-bottom:1.2rem;}
+.pricing-items{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem;}
+.pricing-item{padding:1rem 1.2rem;background:var(--cream);border-radius:var(--radius-sm);border:1.5px solid var(--border);}
+.pricing-item-name{font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+.pricing-item-detail{font-size:0.82rem;color:var(--text-light);line-height:1.7;}
+.pricing-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink-mid),var(--pink-dark));color:white;font-size:0.9rem;font-weight:600;padding:0.7rem 1.5rem;border-radius:50px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 16px rgba(224,96,144,0.3);}
+.pricing-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(224,96,144,0.4);}
+.delivery-boxes{display:flex;flex-direction:column;gap:0.8rem;margin-top:1rem;}
+.delivery-box{padding:1rem 1.2rem;background:white;border-radius:var(--radius-sm);border:1.5px solid var(--border);font-size:0.88rem;color:var(--text-mid);line-height:1.8;}
+.delivery-box strong{color:var(--text);display:block;margin-bottom:0.3rem;font-size:0.9rem;}
+.delivery-box b{color:var(--text);}
+.flow-list{display:flex;flex-direction:column;}
+.flow-item{display:flex;gap:1.2rem;align-items:flex-start;}
+.flow-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--pink-mid),var(--pink-dark));color:white;font-size:0.85rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;}
+.flow-body{flex:1;padding-bottom:1.6rem;border-left:2px dashed var(--border);margin-left:-1.2rem;padding-left:calc(1.2rem + 12px);}
+.flow-item:last-child .flow-body{border-left:none;padding-bottom:0;}
+.flow-title{font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+.flow-desc{font-size:0.88rem;color:var(--text-mid);line-height:1.75;}
+.flow-desc b{color:var(--text);}
+
+#faq{background:white;}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.faq-item{background:var(--cream);border-radius:var(--radius-sm);padding:1.3rem 1.5rem;border:1.5px solid var(--border);}
+.faq-q{font-family:'Zen Maru Gothic',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;display:flex;gap:0.5rem;}
+.faq-q::before{content:'Q.';color:var(--pink-dark);flex-shrink:0;}
+.faq-a{font-size:0.88rem;color:var(--text-mid);line-height:1.8;padding-left:1.5rem;}
+.faq-a b{color:var(--text);}
+.terms-box{margin-top:2rem;background:var(--cream);border-radius:var(--radius-sm);padding:1.4rem 1.6rem;border:1.5px solid var(--border);}
+.terms-box h3{font-family:'Zen Maru Gothic',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.8rem;}
+.terms-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+.terms-list li{font-size:0.88rem;color:var(--text-mid);display:flex;gap:0.5rem;align-items:flex-start;}
+.terms-list li::before{content:'✕';color:var(--pink-dark);font-size:0.75rem;font-weight:700;margin-top:0.15rem;flex-shrink:0;}
+.terms-list b{color:var(--text);}
+
+#contact{background:linear-gradient(135deg,var(--pink-light) 0%,var(--lavender-light) 50%,var(--sky-light) 100%);}
+.contact-card{background:white;border-radius:var(--radius);padding:3rem;border:1.5px solid var(--border);max-width:700px;margin:0 auto;box-shadow:0 20px 60px var(--shadow);}
+.contact-header{text-align:center;margin-bottom:2rem;}
+.contact-icon{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--pink-mid),var(--lavender));display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 1.2rem;}
+.contact-card h2{font-family:'Zen Maru Gothic',sans-serif;font-size:1.6rem;font-weight:700;color:var(--text);margin-bottom:0.6rem;}
+.contact-header p{font-size:0.95rem;color:var(--text-mid);line-height:1.9;}
+.contact-header a{color:var(--pink-dark);text-decoration:none;font-weight:500;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+.form-group label{font-size:0.85rem;font-weight:600;color:var(--text);}
+.form-group label span{color:var(--pink-dark);margin-left:2px;}
+.form-group input,.form-group select,.form-group textarea{padding:0.7rem 0.95rem;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:0.9rem;font-family:inherit;color:var(--text);background:var(--cream);transition:border-color 0.2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--pink);background:white;}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-submit{width:100%;padding:0.95rem;background:linear-gradient(135deg,var(--pink-mid),var(--pink-dark));color:white;font-size:1rem;font-weight:600;border:none;border-radius:50px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 6px 24px rgba(224,96,144,0.3);margin-top:0.5rem;font-family:inherit;}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(224,96,144,0.4);}
+.contact-divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--text-light);font-size:0.85rem;}
+.contact-divider::before,.contact-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+.contact-alts{display:flex;flex-direction:column;gap:0.7rem;}
+.contact-alt-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:0.75rem 1.5rem;border-radius:50px;font-size:0.9rem;font-weight:600;text-decoration:none;border:1.5px solid var(--border);color:var(--text-mid);transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.contact-alt-btn:hover{border-color:var(--pink);color:var(--pink-dark);background:var(--pink-light);}
+
+footer{background:var(--text);color:rgba(255,255,255,0.4);text-align:center;padding:2rem 3rem;font-size:0.82rem;}
+footer span{color:var(--pink);}
+
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:960px){
+  nav{padding:0.9rem 1.5rem;}
+  .hero{padding:6rem 1.5rem 3rem;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-img-wrap{order:-1;max-width:300px;margin:0 auto;}
+  section{padding:3.5rem 1.5rem;}
+  .works-grid{grid-template-columns:repeat(2,1fr);}
+  .about-grid{grid-template-columns:1fr;}
+  .manga-grid{grid-template-columns:1fr;}
+  .pricing-wrap{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+@media(max-width:560px){.works-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="sakura-wrap" id="sakuraWrap"></div>
+<div class="stars-wrap" id="starsWrap"></div>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon"><img src="images/icon.jpg" alt="さいにゃん"></div>
+    <div><span class="nav-logo-text">さいにゃん</span><span class="nav-logo-sub">Sainyan</span></div>
+  </a>
+  <ul>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#manga">Manga</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta shine">お仕事のご依頼</a></li>
+    <li><a href="en/index.html" class="nav-lang">EN</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">企業案件・受注受付中</div>
+      <div class="hero-catchcopy-wrap">
+        <span class="star-deco">✦</span><span class="star-deco">✦</span><span class="star-deco">✦</span>
+        <span class="hero-catchcopy">かわいいを、<br>丁寧に描く。</span>
+      </div>
+      <p class="hero-sub">漫画家・イラストレーター</p>
+      <p class="hero-desc">まんがタイムきらら MAX で商業連載を経験。<br>コメディ・萌え系の女の子キャラクターを得意とし、<br>VTuberイラスト・キャラクターデザイン・<br>カバーイラストなど幅広くお受けしています。</p>
+      <div class="hero-badges">
+        <span class="badge badge-lav">キャラクターデザイン</span>
+        <span class="badge badge-sky">VTuberイラスト</span>
+        <span class="badge badge-pink">カバー・挿絵</span>
+        <span class="badge badge-pink">商業漫画</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary shine">✉ お仕事のご依頼</a>
+        <a href="#works" class="btn-secondary">作品を見る →</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap"><img src="images/hero.png" alt="さいにゃんキャラクター"></div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="section-inner">
+    <div class="section-label">Illustration Works</div>
+    <h2 class="section-title">イラスト作品</h2>
+    <p class="section-sub">キャラクターデザイン・VTuberイラスト・受注実績など</p>
+    <div class="works-grid">
+
+      <div class="work-card fade-up" onclick="openLightbox(['images/oc_design_sheet.jpg'],0)">
+        <div class="work-card-img"><img src="images/oc_design_sheet.jpg" alt="OCデザインシート"></div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-chara">キャラデザ</span></div>
+          <div class="work-card-title">オリジナルキャラクター デザインシート</div>
+          <div class="work-card-desc">VTuberモデルを想定したオリジナルキャラクターのデザインシート。全身＋アップの2カット構成。</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" onclick="openLightbox(sdImgs,sdIdx)">
+        <div class="work-card-img">
+          <img id="sd-img" src="images/sd_1.jpg" alt="ミニキャラクター">
+          <div class="dot-btns" onclick="event.stopPropagation()" id="sd-dots">
+            <button class="dot-btn active" onclick="switchDot('sd',0)"></button>
+            <button class="dot-btn" onclick="switchDot('sd',1)"></button>
+            <button class="dot-btn" onclick="switchDot('sd',2)"></button>
+            <button class="dot-btn" onclick="switchDot('sd',3)"></button>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-mini">ミニキャラ</span><span class="work-tag tag-chara">差分4種</span></div>
+          <div class="work-card-title">オリジナルキャラクター ミニキャラクター（4表情）</div>
+          <div class="work-card-desc">同キャラクターのミニキャラクターイラスト。表情差分4種。スタンプ・グッズ用途に対応可能。</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" onclick="openLightbox(berryImgs,berryIdx)">
+        <div class="work-card-img">
+          <img id="berry-img" src="images/berry_full.jpg" alt="苺咲べりぃさん">
+          <div class="dot-btns" onclick="event.stopPropagation()" id="berry-dots">
+            <button class="dot-btn active" onclick="switchDot('berry',0)"></button>
+            <button class="dot-btn" onclick="switchDot('berry',1)"></button>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-vtuber">VTuber</span><span class="work-tag tag-fanart">ファンアート</span><span class="work-tag tag-commission">有償受注</span></div>
+          <div class="work-card-title">苺咲べりぃさん ファンアート</div>
+          <div class="work-card-desc">苺咲べりぃさんのファンの方よりSkeb経由でご依頼いただいたファンアート。全身版・トリミング版の2パターン納品（2026年3月）。</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" onclick="openLightbox(seasonImgs,seasonIdx)">
+        <div class="work-card-img">
+          <img id="season-img" src="images/oc_winter.jpg" alt="OC季節イラスト">
+          <div class="dot-btns" onclick="event.stopPropagation()" id="season-dots">
+            <button class="dot-btn active" onclick="switchDot('season',0)"></button>
+            <button class="dot-btn" onclick="switchDot('season',1)"></button>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-original">オリジナル</span><span class="work-tag tag-season">季節差分</span></div>
+          <div class="work-card-title">オリジナルキャラクター 季節イラスト</div>
+          <div class="work-card-desc">同一キャラクターの季節違い2バリエーション。冬は雪景色・和装、春は桜吹雪・緑背景。季節ごとの描き分けに対応しています。</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" onclick="openLightbox(['images/oc_valentine.jpg'],0)">
+        <div class="work-card-img"><img src="images/oc_valentine.jpg" alt="OCバレンタイン"></div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-original">オリジナル</span></div>
+          <div class="work-card-title">オリジナルキャラクター バレンタイン</div>
+          <div class="work-card-desc">同一キャラクターの衣装違い。衣装バリエーション対応可。</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" onclick="openLightbox(neneImgs,neneIdx)">
+        <div class="work-card-img">
+          <img id="nene-img" src="images/nene_main.jpg" alt="桃鈴ねねさん">
+          <div class="dot-btns" onclick="event.stopPropagation()" id="nene-dots">
+            <button class="dot-btn active" onclick="switchDot('nene',0)"></button>
+            <button class="dot-btn" onclick="switchDot('nene',1)"></button>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-vtuber">VTuber</span><span class="work-tag tag-fanart">ファンアート</span></div>
+          <div class="work-card-title">桃鈴ねねさん ファンアート</div>
+          <div class="work-card-desc">ご本人の配信サムネイルに採用いただいたファンアート（2026年3月）。表情差分2パターン。</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" onclick="openLightbox(['images/birthday_project.jpg'],0)">
+        <div class="work-card-img"><img src="images/birthday_project.jpg" alt="誕生日企画"></div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-fan-project">ファン企画</span><span class="work-tag tag-commission">有償受注</span></div>
+          <div class="work-card-title">ファン有志 非公式お誕生日企画イラスト</div>
+          <div class="work-card-desc">ファンの方々が企画した声優さんへの非公式お誕生日プロジェクト。ヒアリングを経て、ご本人をイメージしたメインイラストと、これまでに演じてこられたキャラクターを中心に構成。工程ごとに丁寧にご確認いただきながら制作しました。※非公式ファン企画</div>
+        </div>
+      </div>
+
+      <div class="work-card fade-up" style="cursor:default;">
+        <div class="work-card-img" style="background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;">
+          <div style="font-size:2.4rem;opacity:0.4;">🔒</div>
+          <div style="font-size:0.85rem;color:#999;font-weight:600;letter-spacing:0.06em;">NON-DISCLOSURE</div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tags"><span class="work-tag tag-secret">非公開案件</span></div>
+          <div class="work-card-title">非公開案件の実績あり</div>
+          <div class="work-card-desc">守秘義務（NDA）締結の上、複数の非公開案件に対応した実績があります。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-arrow" id="lb-prev" onclick="lbNav(-1)">‹</button>
+    <img src="" alt="" id="lightbox-img">
+    <button class="lb-arrow" id="lb-next" onclick="lbNav(1)">›</button>
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+</div>
+
+<section id="manga">
+  <div class="section-inner">
+    <div class="section-label">Manga Works</div>
+    <h2 class="section-title">商業漫画</h2>
+    <p class="section-sub">商業誌での連載経験があります。漫画のご依頼もお気軽にご相談ください。</p>
+    <div class="manga-grid">
+      <div class="manga-card fade-up">
+        <div class="manga-cover"><img src="images/manga_vol1.jpg" alt="1巻"></div>
+        <div class="manga-info">
+          <div class="manga-vol">Vol.1</div>
+          <div class="manga-title">てくてくっ！秘密リサーチ</div>
+          <div class="manga-meta">まんがタイムきらら MAX ／ 芳文社 MANGA TIME KR COMICS</div>
+          <div class="manga-desc">フィールドワーク好きな女子高生・ひぐれが、暗渠辿りの途中で元気な女の子・すかいと出会う。街に隠れた不思議な秘密をリサーチする街ブラ系4コマ、開幕！</div>
+          <div class="manga-links">
+            <a href="https://amzn.asia/d/0cXYJmjt" target="_blank" rel="noopener" class="manga-btn">Amazon で見る →</a>
+            <a href="https://x.com/sainyan7/status/1793553086201667667" target="_blank" rel="noopener" class="manga-btn manga-btn-x">書店特典イラストを X で見る →</a>
+          </div>
+        </div>
+      </div>
+      <div class="manga-card fade-up">
+        <div class="manga-cover"><img src="images/manga_vol2.jpg" alt="2巻"></div>
+        <div class="manga-info">
+          <div class="manga-vol">Vol.2</div>
+          <div class="manga-title">てくてくっ！秘密リサーチ</div>
+          <div class="manga-meta">まんがタイムきらら MAX ／ 芳文社 MANGA TIME KR COMICS</div>
+          <div class="manga-desc">すかいと出会ってから仲間が増えたひぐれ。すかいが動画投稿に挑戦したり、ライバルが現れたり。一人の探索では気づかなかった発見が続々と！</div>
+          <div class="manga-links">
+            <a href="https://amzn.asia/d/0ceTTSLQ" target="_blank" rel="noopener" class="manga-btn">Amazon で見る →</a>
+            <a href="https://x.com/sainyan7/status/1954379677365154165" target="_blank" rel="noopener" class="manga-btn manga-btn-x">書店特典イラストを X で見る →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="manga-note">読み切り・連載・Webコミックなど漫画のご依頼は<a href="#contact">お問い合わせフォーム</a>よりご相談ください。</div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 class="section-title">プロフィール</h2>
+    <div class="about-grid">
+      <div class="about-card fade-up">
+        <div class="about-avatar"><img src="images/icon.jpg" alt="さいにゃん"></div>
+        <div class="about-name">さいにゃん</div>
+        <div class="about-role">漫画家・イラストレーター / Sainyan</div>
+        <div class="about-sns">
+          <a href="https://x.com/sainyan7" target="_blank" rel="noopener" class="sns-btn">𝕏 Twitter</a>
+          <a href="https://skeb.jp/@sainyan7" target="_blank" rel="noopener" class="sns-btn">Skeb</a>
+          <a href="https://bsky.app/profile/sainyan7.bsky.social" target="_blank" rel="noopener" class="sns-btn">Bluesky</a>
+        </div>
+      </div>
+      <div class="about-content fade-up">
+        <h3>作風・得意なこと</h3>
+        <p>漫画家・イラストレーターのさいにゃんです。まんがタイムきらら MAX（芳文社）にて『てくてくっ！秘密リサーチ』を連載。コメディ・萌え系の女の子キャラクターを得意とし、表情豊かでかわいらしいイラストを描いています。商業漫画連載のほか、VTuberイラスト・キャラクターデザイン・教育マンガ制作など幅広い分野での制作実績があります。企業様・個人VTuber様などのご依頼を承っています。</p>
+        <h3>対応可能なお仕事</h3>
+        <div class="skills-grid">
+          <span class="skill-chip">キャラクターイラスト</span>
+          <span class="skill-chip">キャラクターデザイン</span>
+          <span class="skill-chip">VTuberイラスト</span>
+          <span class="skill-chip">漫画（読み切り・連載）</span>
+          <span class="skill-chip">グッズ用イラスト</span>
+          <span class="skill-chip">ミニキャラクターイラスト</span>
+          <span class="skill-chip">非公開案件（NDA対応可）</span>
+        </div>
+        <h3>作業環境</h3>
+        <table class="about-table">
+          <tr><td>OS</td><td>Windows / Mac 両対応</td></tr>
+          <tr><td>制作ツール</td><td>CLIP STUDIO PAINT</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Pricing & Flow</div>
+    <h2 class="section-title">料金・制作の流れ</h2>
+    <div class="pricing-wrap">
+      <div>
+        <div class="pricing-intro fade-up">
+          <p>ご予算に合わせてご提案いたします。まずはお気軽にご相談ください。</p>
+          <div class="pricing-items">
+            <div class="pricing-item">
+              <div class="pricing-item-name">キャラクターイラスト</div>
+              <div class="pricing-item-detail">背景・キャラクター追加・衣装差分・表情差分などオプションに応じて変動します。</div>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-name">ミニキャラクターイラスト</div>
+              <div class="pricing-item-detail">表情差分などのオプションに応じて変動します。</div>
+            </div>
+            <div class="pricing-item">
+              <div class="pricing-item-name">漫画・その他</div>
+              <div class="pricing-item-detail">ページ数・内容によって異なります。お気軽にご相談ください。</div>
+            </div>
+          </div>
+          <a href="#contact" class="pricing-cta shine">✉ ご相談・お見積もりはこちら</a>
+        </div>
+        <div class="delivery-boxes fade-up">
+          <div class="delivery-box">
+            <strong>納品形式</strong>
+            PNG・PSD・JPG（その他要相談）<br>カラーモード：RGB納品を基本。CMYK対応は要相談。
+          </div>
+          <div class="delivery-box">
+            <strong>納期</strong>
+            納期はご依頼内容によって異なります。<b>お気軽にご相談ください。</b>
+          </div>
+        </div>
+      </div>
+      <div class="flow-list fade-up">
+        <div class="flow-item">
+          <div class="flow-num">01</div>
+          <div class="flow-body">
+            <div class="flow-title">お問い合わせ・ヒアリング</div>
+            <div class="flow-desc">ご依頼内容・用途・納期・ご予算をお知らせください。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">02</div>
+          <div class="flow-body">
+            <div class="flow-title">見積もり・ご依頼確定・お支払い</div>
+            <div class="flow-desc">内容を確認の上、見積もりをお送りします。ご確認・ご納得いただけましたら、お支払い後に制作を開始します。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">03</div>
+          <div class="flow-body">
+            <div class="flow-title">ラフ・下書き</div>
+            <div class="flow-desc">キャラクターのポーズ・構図・表情などをラフでご提案します。ご確認・修正を経て下書きへと進みます。この段階での<b>変更</b>は<b>2回まで</b>対応しています。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">04</div>
+          <div class="flow-body">
+            <div class="flow-title">線画〜仕上げ</div>
+            <div class="flow-desc">下書きをもとに線画・着色・仕上げを行います。線画以降の変更は<b>基本的に修正不可</b>ですが、軽微な修正は可能な場合がありますので一度ご相談ください。大幅な修正は<b>別途見積もり</b>させていただきます。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">05</div>
+          <div class="flow-body">
+            <div class="flow-title">納品</div>
+            <div class="flow-desc">完成データをご指定の形式（PNG・PSD・JPGなど）でお送りします。ご確認後、ご不明点があればお気軽にご連絡ください。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">よくあるご質問</h2>
+    <div class="faq-grid">
+      <div class="faq-item fade-up">
+        <div class="faq-q">商用利用は可能ですか？</div>
+        <div class="faq-a">可能です。ご依頼時にお伝えいただいた用途での使用が基本となります。グッズ化・商品化など二次利用をご希望の場合は<b>別途二次利用料</b>が発生します。利用用途・範囲をお問い合わせ時に必ずお知らせください。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">著作権はどうなりますか？</div>
+        <div class="faq-a">著作権・著作人格権は全てさいにゃんに帰属します。<b>著作権の譲渡は行っておりません。</b>納品データの使用権をクライアント様にお渡しする形となります。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">修正は何回まで対応していただけますか？</div>
+        <div class="faq-a">ラフ・下書き段階での修正は<b>2回まで</b>対応しています。線画以降は<b>基本的に修正不可</b>となります。軽微な修正のみ可能な場合がありますので、一度ご相談ください。大幅な変更が生じる場合は<b>別途見積もり</b>させていただきます。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">支払い方法を教えてください。</div>
+        <div class="faq-a">個人様は銀行振込・<b>全額前払い</b>となります。企業様は請求書払いに対応しており、月末締め翌月末払いを基本としています。詳細はお問い合わせください。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">依頼内容の公開はされますか？</div>
+        <div class="faq-a">非公開をご希望の場合は対応いたします。お問い合わせ時にお知らせください。なお、公開可能な案件はポートフォリオに掲載させていただく場合があります。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">依頼から納品までどのくらいかかりますか？</div>
+        <div class="faq-a">ご依頼内容によって異なります。お気軽にご相談ください。</div>
+      </div>
+    </div>
+    <div class="terms-box fade-up">
+      <h3>禁止事項・お断りについて</h3>
+      <ul class="terms-list">
+        <li>無断転載・無断使用</li>
+        <li>二次配布・転売</li>
+        <li><b>生成AIへの学習利用</b></li>
+        <li>ご依頼内容の範囲を超えた使用</li>
+        <li>公序良俗に反する用途での使用</li>
+        <li>特定の個人・団体を傷つける用途での使用</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-card">
+      <div class="contact-header">
+        <div class="contact-icon">✉</div>
+        <h2>お仕事のご依頼</h2>
+        <p>企業様・個人様のご依頼はお問い合わせフォームまたは<br>メール（<a href="mailto:sainyan7.info@gmail.com">sainyan7.info@gmail.com</a>）にてご連絡ください。<br>個人様のご依頼はSkebもご利用いただけます。</p>
+      </div>
+      <form action="https://formspree.io/f/mgopljwr" method="POST">
+        <div class="form-row">
+          <div class="form-group"><label>お名前<span>*</span></label><input type="text" name="name" required placeholder="山田 太郎"></div>
+          <div class="form-group"><label>会社名・所属</label><input type="text" name="company" placeholder="株式会社〇〇"></div>
+        </div>
+        <div class="form-group"><label>メールアドレス<span>*</span></label><input type="email" name="email" required placeholder="example@email.com"></div>
+        <div class="form-group">
+          <label>ご依頼の種類<span>*</span></label>
+          <select name="type" required><option value="">選択してください</option><option>イラスト</option><option>漫画</option><option>キャラクターデザイン</option><option>その他</option></select>
+        </div>
+        <div class="form-group"><label>ご依頼内容・詳細<span>*</span></label><textarea name="details" required placeholder="ご依頼内容・用途・ご希望のイメージなどをお書きください"></textarea></div>
+        <div class="form-row">
+          <div class="form-group"><label>ご希望納期</label><input type="text" name="deadline" placeholder="例：2026年6月末"></div>
+          <div class="form-group"><label>ご予算の目安</label><input type="text" name="budget" placeholder="例：応相談"></div>
+        </div>
+        <div class="form-group"><label>その他・備考</label><textarea name="notes" style="min-height:80px" placeholder="その他ご要望があればお書きください"></textarea></div>
+        <button type="submit" class="form-submit shine">送信する</button>
+      </form>
+      <div class="contact-divider">または</div>
+      <div class="contact-alts"><a href="https://skeb.jp/@sainyan7" target="_blank" rel="noopener" class="contact-alt-btn">個人様のご依頼は Skeb へ →</a></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 <span>さいにゃん / Sainyan</span>. All rights reserved.</p></footer>
+
+<script>
+const pts=['✦','★','♡','✿','·'];
+document.addEventListener('click',e=>{
+  for(let i=0;i<4;i++){
+    const p=document.createElement('div');p.className='particle';
+    p.textContent=pts[Math.floor(Math.random()*pts.length)];
+    p.style.left=(e.clientX+(Math.random()-.5)*40)+'px';
+    p.style.top=(e.clientY+(Math.random()-.5)*40)+'px';
+    p.style.color=['var(--pink-dark)','var(--lavender)','var(--sky)'][Math.floor(Math.random()*3)];
+    document.body.appendChild(p);setTimeout(()=>p.remove(),800);
+  }
+});
+
+const sw=document.getElementById('sakuraWrap');
+for(let i=0;i<22;i++){
+  const p=document.createElement('div');p.className='petal';
+  p.style.cssText='background:linear-gradient(135deg,#ffb7d5,#ffd6e8);';
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(4+Math.random()*6)+'s';
+  p.style.animationDelay=(-Math.random()*8)+'s';
+  p.style.transform='rotate('+Math.random()*360+'deg)';
+  const s=(7+Math.random()*6)+'px';p.style.width=p.style.height=s;
+  sw.appendChild(p);
+}
+
+const starsWrap=document.getElementById('starsWrap');
+const starSymbols=['✦','★','✨','·','✦','★'];
+const starPositions=[
+  {top:'3%',left:'2%',dur:4,delay:0},{top:'8%',left:'96%',dur:4.2,delay:0.3},
+  {top:'14%',left:'3%',dur:5,delay:1},{top:'20%',left:'97%',dur:3.8,delay:0.8},
+  {top:'26%',left:'2%',dur:4.5,delay:1.5},{top:'32%',left:'96%',dur:4,delay:0.5},
+  {top:'38%',left:'3%',dur:3.5,delay:0.2},{top:'44%',left:'97%',dur:5,delay:1.2},
+  {top:'50%',left:'2%',dur:4.2,delay:0.7},{top:'56%',left:'96%',dur:4,delay:1.8},
+  {top:'62%',left:'3%',dur:3.8,delay:0.4},{top:'68%',left:'97%',dur:4.5,delay:1},
+  {top:'74%',left:'2%',dur:4,delay:2},{top:'80%',left:'96%',dur:3.5,delay:0.6},
+  {top:'86%',left:'3%',dur:4.2,delay:1.3},{top:'92%',left:'97%',dur:4,delay:0.9},
+  {top:'97%',left:'2%',dur:3.8,delay:1.6},{top:'25%',left:'50%',dur:5,delay:0.4},
+  {top:'50%',left:'48%',dur:4,delay:1.1},{top:'75%',left:'51%',dur:3.8,delay:0.7},
+];
+starPositions.forEach((s,i)=>{
+  const el=document.createElement('span');el.className='float-star';
+  el.textContent=starSymbols[i%starSymbols.length];
+  el.style.top=s.top;el.style.left=s.left;
+  el.style.animationDuration=s.dur+'s';el.style.animationDelay=s.delay+'s';
+  starsWrap.appendChild(el);
+});
+function resizeStars(){starsWrap.style.height=document.body.scrollHeight+'px';}
+resizeStars();window.addEventListener('resize',resizeStars);setTimeout(resizeStars,500);
+
+const sdImgs=['images/sd_1.jpg','images/sd_2.jpg','images/sd_3.jpg','images/sd_4.jpg'];
+const berryImgs=['images/berry_full.jpg','images/berry_crop.jpg'];
+const seasonImgs=['images/oc_winter.jpg','images/oc_spring.jpg'];
+const neneImgs=['images/nene_main.jpg','images/nene_sub.jpg'];
+let sdIdx=0,berryIdx=0,seasonIdx=0,neneIdx=0;
+
+function switchDot(name,idx){
+  const map={
+    sd:{imgs:sdImgs,imgEl:'sd-img',dotsEl:'sd-dots'},
+    berry:{imgs:berryImgs,imgEl:'berry-img',dotsEl:'berry-dots'},
+    season:{imgs:seasonImgs,imgEl:'season-img',dotsEl:'season-dots'},
+    nene:{imgs:neneImgs,imgEl:'nene-img',dotsEl:'nene-dots'}
+  };
+  const d=map[name];
+  document.getElementById(d.imgEl).src=d.imgs[idx];
+  document.querySelectorAll('#'+d.dotsEl+' .dot-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  if(name==='sd')sdIdx=idx;if(name==='berry')berryIdx=idx;
+  if(name==='season')seasonIdx=idx;if(name==='nene')neneIdx=idx;
+}
+
+let lbImgs=[],lbCur=0;
+function openLightbox(imgs,startIdx){lbImgs=imgs;lbCur=startIdx||0;lbShow();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function lbShow(){
+  document.getElementById('lightbox-img').src=lbImgs[lbCur];
+  document.getElementById('lb-prev').disabled=lbCur===0;
+  document.getElementById('lb-next').disabled=lbCur===lbImgs.length-1;
+  document.getElementById('lb-counter').textContent=lbImgs.length>1?(lbCur+1)+' / '+lbImgs.length:'';
+}
+function lbNav(dir){lbCur=Math.max(0,Math.min(lbImgs.length-1,lbCur+dir));lbShow();}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);});
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
