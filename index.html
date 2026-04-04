@@ -132,7 +132,7 @@ section{padding:5rem 3rem;position:relative;}
 .manga-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 .manga-card{display:flex;gap:1.6rem;align-items:flex-start;background:white;border-radius:var(--radius);padding:1.8rem;border:1.5px solid var(--border);transition:box-shadow 0.2s;}
 .manga-card:hover{box-shadow:0 8px 32px var(--shadow);}
-.manga-cover{width:140px;height:196px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0;box-shadow:0 6px 20px rgba(0,0,0,0.14);}
+.manga-cover{width:170px;height:238px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0;box-shadow:0 6px 20px rgba(0,0,0,0.14);}
 .manga-cover img{width:100%;height:100%;object-fit:cover;}
 .manga-info{flex:1;}
 .manga-vol{font-size:0.78rem;font-weight:700;color:var(--pink-dark);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.3rem;}
@@ -247,6 +247,9 @@ footer span{color:var(--pink);}
 .mobile-dropdown ul li a{display:block;padding:0.7rem 0;font-size:0.95rem;font-weight:500;color:var(--text-mid);text-decoration:none;border-bottom:1px solid var(--border);}
 .mobile-dropdown ul li:last-child a{border-bottom:none;}
 .mobile-dropdown ul li a:hover{color:var(--pink-dark);}
+.mobile-lang-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);padding:0.8rem 0 0.2rem;display:block;}
+.mobile-lang-item a{display:inline-flex;align-items:center;gap:4px;font-size:0.88rem;font-weight:600;color:var(--pink-dark)!important;border:1.5px solid var(--pink)!important;padding:0.3rem 0.85rem;border-radius:50px;margin-top:0.3rem;border-bottom:none!important;}
+.mobile-lang-item a:hover{background:var(--pink-light)!important;}
 nav{transition:transform 0.3s;}
 nav.nav-hidden{transform:translateY(-100%);}
 
@@ -255,18 +258,48 @@ nav.nav-hidden{transform:translateY(-100%);}
   nav ul{display:none;}
   .nav-logo-sub{display:none;}
   .nav-mobile-controls{display:flex;}
+  /* Hero */
   .hero{padding:6rem 1.5rem 3rem;}
   .hero-inner{grid-template-columns:1fr;}
-  .hero-img-wrap{order:-1;max-width:300px;margin:0 auto;}
+  .hero-img-wrap{order:-1;max-width:420px;margin:0 auto;}
+  .btn-primary{font-size:1.05rem;padding:0.9rem 2rem;}
+  .btn-secondary{font-size:1.05rem;padding:0.9rem 1.4rem;}
+  /* Works */
   section{padding:3.5rem 1.5rem;}
   .works-grid{grid-template-columns:repeat(2,1fr);}
-  .about-grid{grid-template-columns:1fr;}
+  .work-card:hover .work-card-img img{transform:none;}
+  .work-card-img{overflow:visible;}
+  .dot-btns{bottom:-30px;background:rgba(58,45,53,0.12);}
+  .work-card-body{padding-top:2.2rem;}
+  /* Manga */
   .manga-grid{grid-template-columns:1fr;}
+  .manga-card{flex-direction:column;}
+  .manga-cover{width:180px;height:252px;margin:0 auto 0.5rem;}
+  /* Others */
+  .about-grid{grid-template-columns:1fr;}
   .pricing-wrap{grid-template-columns:1fr;}
   .faq-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
+  /* Contact */
+  .contact-header{text-align:left;}
+  .contact-icon{margin:0 0 1.2rem;}
 }
-@media(max-width:560px){.works-grid{grid-template-columns:1fr;}}
+@media(max-width:560px){
+  .works-grid{grid-template-columns:1fr;}
+  /* Lightbox: center image, arrows below */
+  .lightbox-inner{
+    display:grid;
+    grid-template-columns:40px 1fr 40px;
+    grid-template-rows:auto auto;
+    max-width:95vw;
+    gap:0.5rem 0.25rem;
+  }
+  .lightbox-inner img{grid-column:1/4;grid-row:1;max-width:100%;max-height:65vh;width:100%;}
+  #lb-prev{grid-column:1;grid-row:2;justify-self:center;}
+  #lb-next{grid-column:3;grid-row:2;justify-self:center;}
+  .lb-counter{position:static;transform:none;grid-column:2;grid-row:2;text-align:center;align-self:center;}
+  .lightbox-close{top:-2.5rem;}
+}
 </style>
 </head>
 <body>
@@ -303,7 +336,8 @@ nav.nav-hidden{transform:translateY(-100%);}
     <li><a href="#about">About</a></li>
     <li><a href="#pricing">Flow</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="en/index.html">EN</a></li>
+    <li><span class="mobile-lang-label">言語切替 / Language</span></li>
+    <li class="mobile-lang-item"><a href="en/index.html">🌐 English (EN)</a></li>
   </ul>
 </div>
 
